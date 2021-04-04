@@ -22,3 +22,5 @@ Then configure a security key, on the [GitHub Settings page](https://github.com/
 **4.** When asked to perform an action on the device, just touch one button on the OnlyKey.
 
 That's it.
+
+
