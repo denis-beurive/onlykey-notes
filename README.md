@@ -19,7 +19,7 @@ Connect the OnlyKey on the computer and unlock it.
 
 **Step 2**
 
-On the section "Security keys" ([here]((https://github.com/settings/two_factor_authentication/configure))), enter a name for the key (for example "OnlyKey") and click on the "Add" button.
+On the section "Security keys" ([here](https://github.com/settings/two_factor_authentication/configure)), enter a name for the key (for example "OnlyKey") and click on the "Add" button.
 
 ![](images/settings-security-keys.png)
 
