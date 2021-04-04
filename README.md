@@ -15,7 +15,7 @@ Then configure a security key, on the [GitHub Settings page](https://github.com/
 
 **2.** On the section "Security keys", enter a name for the key and click on the "Add" button.
 
-![](images/security-keys.png)
+![](images/settings-security-keys.png)
 
 **3.** The led on the OnlyKey blinks in blue.
 
