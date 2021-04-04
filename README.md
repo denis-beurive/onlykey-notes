@@ -11,15 +11,17 @@ First you need to configure two-factor authentication using a TOTP. To do that, 
 
 Then configure a security key, on the [GitHub Settings page](https://github.com/settings/two_factor_authentication/configure).
 
-**1.** Connect the OnlyKey on the computer and unlock it.
+> **WARNING**: by the 4th of april 2021, the procedure does not work with FireFox (version `87.0` - 64 bits) on Windows 10. It works with Edge (version `89.0.774.68`). See [this post](https://onlykey.discourse.group/t/github-security-key-fido2-webauthn-fails-on-windows-10/143?u=denis.beurive) for details.
 
-**2.** On the section "Security keys" ([here]((https://github.com/settings/two_factor_authentication/configure))), enter a name for the key and click on the "Add" button.
+**Step 1** Connect the OnlyKey on the computer and unlock it.
+
+**Step 2** On the section "Security keys" ([here]((https://github.com/settings/two_factor_authentication/configure))), enter a name for the key (for example "OnlyKey") and click on the "Add" button.
 
 ![](images/settings-security-keys.png)
 
-**3.** The led on the OnlyKey blinks in blue.
+**Step 3** The led on the OnlyKey blinks blue.
 
-**4.** When asked to perform an action on the device, just touch one button on the OnlyKey.
+**Step 4** When asked to perform an action on the device, just touch one button on the OnlyKey.
 
 That's it.
 
