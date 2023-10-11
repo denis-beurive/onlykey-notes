@@ -78,7 +78,7 @@ Procdure:
 > PS C:> $text = Get-Content .\onlykey-backup-2023-10-11T21-13.txt -Raw 
 > PS C:> Set-Clipboard -Value $text
 > ```
-> 
+>
 > Then you can paste the content of the file `onlykey-backup-2023-10-11T21-13.txt` in any application (`[Ctrl]+[V]`).
 
 ## Encrypt / Decrypt
