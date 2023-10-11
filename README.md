@@ -1,12 +1,35 @@
 
-# General information
+
+
+# Install / update the desktop application
+
+URL: [Install the desktop app](https://docs.onlykey.io/app.html)
+
+> It is possible to find out the version of the last release by looking at the download link ((here)[https://docs.onlykey.io/app.html#app-desktop]). For example: `https://github.com/trustcrypto/OnlyKey-App/releases/download/v5.3.6/OnlyKey_5.3.6.exe`. You can see that the last version is `5.3.6`.
+
+Check the version of the installed version:
+
+![](images/get-version.png)
+
+# Install / update the CLI utility
+
+URL: [Install onlykey-cli.exe](https://docs.onlykey.io/command-line.html)
+
+> Under Windows, you should use the [standalone version](https://docs.onlykey.io/command-line.html#windows-stand-alone-exe).
+
+Check the version of the CLI utility:
+
+```
+onlykey-cli.exe version
+```
+
+# General information about the OnlyKey
 
 OnlyKey firmware version:
 
     C:\>onlykey-cli.exe fwversion
     
     v2.1.0-prodc
-
 
 # LED behavior
 
