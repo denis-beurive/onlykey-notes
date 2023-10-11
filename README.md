@@ -23,6 +23,8 @@ Check the version of the CLI utility:
 onlykey-cli.exe version
 ```
 
+> It is possible to find out the version of the last release by looking at the download link ((here)[https://docs.onlykey.io/command-line.html#installation]). For example: `https://github.com/trustcrypto/python-onlykey/releases/download/v1.2.9/onlykey-cli.exe`. You can see that the last version is `1.2.9`.
+
 # General information about the OnlyKey
 
 OnlyKey firmware version:
