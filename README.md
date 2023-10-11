@@ -71,7 +71,7 @@ Procdure:
 
 > Please note: you don't have to use the desktop application to back up the OnlyKey. You can, for example, open a text editor (notepad, for example), click in the text area (in the text editor), and hold the #1 button down on your OnlyKey for 5+ seconds and release. The text that represents the backup will be written directly in the text editor.
 
-> Please note: for windows users, you can use PoweShell to copy the content of the backup file to the clipbord.
+> Please note: for windows users, you can use PoweShell to copy the content of the backup file to the clipboard.
 > For example:
 >
 > ```
@@ -105,6 +105,17 @@ Generate a PGP keypair:
 To get the generated private key, execute the following command ([CF this post](https://github.com/keybase/client/issues/7450)):
 
     "%HOMEPATH%\AppData\Local\Keybase"\keybase pgp export -s > priv_keybase.txt
+
+
+> Please note: for windows users, you can use PoweShell to copy the content of the private key file to the clipboard.
+> For example:
+>
+> ```
+> PS C:> $text = Get-Content .\priv_keybase.txt -Raw 
+> PS C:> Set-Clipboard -Value $text
+> ```
+>
+> Then you can paste the content of the file `priv_keybase.txt` in any application (`[Ctrl]+[V]`).
 
 ### Import the PGP private key into the OnlyKey
 
