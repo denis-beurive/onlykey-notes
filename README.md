@@ -1,7 +1,7 @@
+# OnlyKey notes
 
 
-
-# Install / update the desktop application
+## Install / update the desktop application
 
 URL: [Install the desktop app](https://docs.onlykey.io/app.html)
 
@@ -11,7 +11,7 @@ Check the version of the installed version:
 
 ![](images/get-version.png)
 
-# Install / update the CLI utility
+## Install / update the CLI utility
 
 URL: [Install onlykey-cli.exe](https://docs.onlykey.io/command-line.html)
 
@@ -25,7 +25,7 @@ onlykey-cli.exe version
 
 > It is possible to find out the version of the last release by looking at the download link ((here)[https://docs.onlykey.io/command-line.html#installation]). For example: `https://github.com/trustcrypto/python-onlykey/releases/download/v1.2.9/onlykey-cli.exe`. You can see that the last version is `1.2.9`.
 
-# General information about the OnlyKey
+## General information about the OnlyKey
 
 OnlyKey firmware version:
 
@@ -33,14 +33,15 @@ OnlyKey firmware version:
     
     v2.1.0-prodc
 
-# LED behavior
+
+## LED behavior
 
 * **Permanently blinking red**: the [config mode](https://docs.crp.to/security.html) is enabled. In this mode, you can, among other things, set a new backup passphrase. _To enable the config mode: hold down the #6 button on your OnlyKey for 5+ seconds and release. The OnlyKey light will turn off. Re-enter your current primary PIN to enter config mode and notice the OnlyKey flashes red._
 * **Permanently blinking blue**: you are using the key to authenticate on a WEB service (Ex: GitHub) - as a "security key". You are asked to touch one of the 6 buttons (on the key).
 
-# Configuration
+## Configuration
 
-## Set the backup passphrase
+### Set the backup passphrase
 
 * Insert the key into the USB slot.
 * Enter the PIN (using the 6 keys on the device). The LED is green.
@@ -52,10 +53,14 @@ OnlyKey firmware version:
 
 You should see a message that says, essentially, that the operation was successful.
 
-# Backup
+## Backup / Restore
 
-Prerequisite: you must set a _backup passphrase_ or key prior to back up the key.
+Prerequisite:
+* you must set a backup passphrase (to the key being backed up) prior to back up a key.
+* you must set a backup passphrase (to the key upon which the backup is restored) prior to restore a back up.
+* if you restore key `K1`’s backup to key `K2`, the same backup passphrase must be set on `K1` and `K2`.
 
+Procdure:
 * Insert the key into the USB slot.
 * Enter the PIN (using the 6 keys on the device). The LED is green.
 * Open the desktop application.
@@ -66,11 +71,21 @@ Prerequisite: you must set a _backup passphrase_ or key prior to back up the key
 
 > Please note: you don't have to use the desktop application to back up the OnlyKey. You can, for example, open a text editor (notepad, for example), click in the text area (in the text editor), and hold the #1 button down on your OnlyKey for 5+ seconds and release. The text that represents the backup will be written directly in the text editor.
 
-# Encrypt / Decrypt
+> Please note: for windows users, you can use PoweShell to copy the content of the backup file to the clipbord.
+> For example:
+>
+> ```
+> PS C:> $text = Get-Content .\onlykey-backup-2023-10-11T21-13.txt -Raw 
+> PS C:> Set-Clipboard -Value $text
+> ```
+> 
+> Then you can paste the content of the file `onlykey-backup-2023-10-11T21-13.txt` in any application (`[Ctrl]+[V]`).
+
+## Encrypt / Decrypt
 
 Go to [OnlyKey Apps](https://apps.crp.to/).
 
-## Generate a PGP key pair
+### Generate a PGP key pair
 
 First, you need a PGP key pair. You can generate these key pair with OpenSSL or with the KeyBase utility, for example. Here we use the KeyBase utility.
 
@@ -91,7 +106,7 @@ To get the generated private key, execute the following command ([CF this post](
 
     "%HOMEPATH%\AppData\Local\Keybase"\keybase pgp export -s > priv_keybase.txt
 
-## Import the PGP private key into the OnlyKey
+### Import the PGP private key into the OnlyKey
 
 * Start the OnlyKey desktop application.
 * Click on the tab "Key".
@@ -100,7 +115,7 @@ To get the generated private key, execute the following command ([CF this post](
 * Enter the passphrase that protects the private key (if any).
 * Click "Save to OnlyKey".
 
-## Send a signed / encrypted message
+### Send a signed / encrypted message
 
 Go to [OnlyKey Apps](https://apps.crp.to/).
 
@@ -134,7 +149,7 @@ Click on "Encrypt & Sign messages".
 
 Enter the 3-digit pin (here "6-3-4") on the OnlyKey and you get the encryted message.
 
-## Decrypt and verify a message
+### Decrypt and verify a message
 
 Go to [OnlyKey Apps](https://apps.crp.to/).
 
@@ -147,9 +162,9 @@ Click on "Decrypt & Verify messages".
 
 **Watch out !!!** You will be asked to type a 3-digit code on the OnlyKey!
 
-# Using the OnlyKey with online accounts
+## Using the OnlyKey with online accounts
 
-## GitHub account
+### GitHub account
 
 Follow the instructions here: [Configuring two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-fido-u2f)
 
@@ -182,7 +197,7 @@ When asked to perform an action on the device, just touch one button on the Only
 
 That's it.
 
-# Notes
+## Notes
 
 * Disable Firefox auto filling forms: [https://support.mozilla.org/en-US/kb/autofill-logins-firefox](https://support.mozilla.org/en-US/kb/autofill-logins-firefox)
 
