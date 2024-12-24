@@ -1,5 +1,9 @@
 # OnlyKey notes
 
+## Cheat sheets
+
+* OnlyKey: [cheat sheet](cheat-sheet-onlykey.md)
+* OnlyKey DUO: [cheat sheet](cheat-sheet-onlykey-duo.md)
 
 ## Install / update the desktop application
 
@@ -34,6 +38,8 @@ onlykey-cli getkeylabels
 
 ## General information about the OnlyKey
 
+### Firmware update
+
 OnlyKey firmware version:
 
 ```
@@ -42,10 +48,37 @@ C:\>onlykey-cli.exe fwversion
 v2.1.0-prodc
 ```
 
-## LED behavior
+> * Firmware for OnlyKey: [https://docs.onlykey.io/usersguide.html#download-firmware](https://docs.onlykey.io/usersguide.html#download-firmware)
+> * Firmware for OnlyKey DUO: [https://docs.onlykey.io/duousersguide.html#download-firmware](https://docs.onlykey.io/duousersguide.html#download-firmware)
+>
+> **Both keys share the same firmware.**
 
-* **Permanently blinking red**: the [config mode](https://docs.crp.to/security.html) is enabled. In this mode, you can, among other things, set a new backup passphrase. _To enable the config mode: hold down the #6 button on your OnlyKey for 5+ seconds and release. The OnlyKey light will turn off. Re-enter your current primary PIN to enter config mode and notice the OnlyKey flashes red._
+### LED behavior
+
+#### OnlyKey
+
+* **Permanently blinking red**: the [config mode](https://docs.crp.to/security.html) is enabled. In this mode, you can, among other things, set a new backup passphrase. _To enable the config mode: hold down the **button #6 on your OnlyKey for 5+ seconds** and release. The OnlyKey light will turn off. Re-enter your current primary PIN to enter config mode and notice the OnlyKey LED flashes red._
 * **Permanently blinking blue**: you are using the key to authenticate on a WEB service (Ex: GitHub) - as a "security key". You are asked to touch one of the 6 buttons (on the key).
+
+#### OnlyKey Duo
+
+* **Permanently blinking blue**: you are using the key to authenticate on a WEB service (Ex: GitHub) - as a "security key". You are asked to touch one of the 2 buttons (on the key).
+* **Permanently blinking red**: the [config mode](https://docs.crp.to/security.html) is enabled. In this mode, you can, among other things, set a new backup passphrase. _To enable the config mode: hold down the **button #2 on your OnlyKey DUO for 10+ seconds** and release. The OnlyKey light will turn off. The OnlyKey LED flashes red._
+
+> On the OnlyKey Duo:
+> * button #1 is located next to the green light.
+> * Button #2 is located on the other side. 
+
+### Print the passwords labels
+
+| Device                            | Procedure                                                                                                                                          |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| OnlyKey                           | Open a text editor and then hold down the button #2 on OnlyKey for 5+ seconds.                                                                     |
+| OnlyKey Duo                       | Open a text editor and then hold down the button #2 on OnlyKey for 5+ seconds (but less than 10 seconds, otherwise you active the admin mmode).    |
+
+> On the OnlyKey Duo:
+> * button #1 is located next to the green light.
+> * Button #2 is located on the other side. 
 
 ## Configuration
 
