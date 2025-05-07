@@ -8,7 +8,7 @@
 
 ## Print the slots' labels
 
-Open a text editor and then hold down the **button #2 on OnlyKey for 5+ seconds and release** (but less than 10 seconds, otherwise you active the admin mmode).
+Open a text editor and then hold down the **button #2 on OnlyKey for 5+ seconds and release**.
 
 ## Put the key in admin mode
 
