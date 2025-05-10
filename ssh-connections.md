@@ -1,11 +1,15 @@
 # SSH connections from a Windows host
 
+This document outlines the procedure for using a private SSH key stored on an OnlyKey to establish a connection with a remote server.
+
+> The provided examples are intended for Windows systems. However, the procedure can be easily adapted—albeit not always straightforward—for use on a Linux host.
+
 ## Preparation
 
 * Download and unstall the last version of OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/)
 * Install the [OnlyKey command line tools](https://docs.onlykey.io/command-line.html).
 
-Check the version of the command line tools: `onlykey-cli.exe version`.
+Verify the installed version of the OnlyKey command line tools by running: `onlykey-cli.exe version`.
 
 Print the version of OpenSSH:
 
@@ -26,8 +30,15 @@ Generate a FIDO authenticator-backed SSH key:
 
 * `-t ed25519-sk`: type of key (type `ED25519` for security key - "sk" for "security key").
 * `-O`: set option for generating **FIDO**-backed keys (see [this link](https://man.openbsd.org/ssh-keygen#FIDO_AUTHENTICATOR)).
-  * `resident`: indicate that the key handle should be stored on the FIDO authenticator itself. This makes it easier to use the authenticator on multiple computers. Resident keys may be supported on FIDO2 authenticators and typically require that a PIN be set on the authenticator prior to generation. Resident keys may be loaded off the authenticator using ssh-add(1). Storing both parts of a key on a FIDO authenticator increases the likelihood of an attacker being able to use a stolen authenticator device.
-  * `application`: override the default FIDO application/origin string of "`ssh:`". This may be useful when generating host or domain-specific resident keys. The specified application string must begin with "`ssh:`".
+  * `resident`: indicate that the key handle should be stored on the FIDO authenticator itself. 
+    This makes it easier to use the authenticator on multiple computers. Resident keys may be 
+    supported on FIDO2 authenticators and typically require that a PIN be set on the authenticator
+    prior to generation. Resident keys may be loaded off the authenticator using `ssh-add`. 
+    Storing both parts of a key on a FIDO authenticator increases the likelihood of an attacker 
+    being able to use a stolen authenticator device.
+  * `application`: override the default FIDO application/origin string of "`ssh:`". This may be useful 
+    when generating host or domain-specific resident keys. The specified application string must 
+    begin with "`ssh:`".
 * `-f %USERPROFILE%\.ssh\id_my_servers_sk`: Specifies the filename of the **key handle** (see below).
 
 > **Notes**
@@ -40,9 +51,8 @@ Generate a FIDO authenticator-backed SSH key:
 > authorise operations by touching or tapping them.
 >
 > **FIDO** keys consist of **two parts**:
-> * a **key handle** part stored in the private key file on disk.
-> * a **per-device private key** that is unique to each FIDO authenticator and that cannot be exported
->   from the authenticator hardware.
+> * A **key handle** (credential ID), stored on the host system, which acts as a reference to a key pair securely managed by the FIDO authenticator (e.g., the OnlyKey).
+> * A **device-bound private key**, generated and stored securely within the FIDO authenticator, which cannot be extracted or exported from the hardware.
 >
 > These are combined by the hardware at authentication time to derive the real key that is used to 
 > sign authentication challenges. Supported key types are `ecdsa-sk` and `ed25519-sk`.
@@ -54,19 +64,16 @@ Generate a FIDO authenticator-backed SSH key:
 >
 > See [this link](https://www.pingidentity.com/en/resources/identity-fundamentals/authentication/passwordless-authentication/fido.html).
 
-Then check that the **FIDO** authenticator-backed SSH key has been created.
-Remember that the **FIDO** consist of **two parts**:
-* The **key handle** part stored in the private key file on disk.
-* The **per-device private key** that is unique to each FIDO authenticator and
-  that cannot be exported from the authenticator hardware.
 
-The **key handle**:
+Next, verify that the FIDO-backed SSH key has been successfully created.
+
+The **key handle** (credential ID):
 
 	C:\>dir %USERPROFILE%\.ssh\id_my_servers_sk
 	...
 	08/05/2025  22:34               553 id_my_servers_sk
 
-The **per-device private key**:
+The **device-bound private key**:
 
 	C:\keepass>onlykey-cli credential ls
 	PIN:
@@ -83,5 +90,11 @@ Just execute the following command:
 
 The public key associated with the FIDO authenticator-backed SSH key is stored in the file "`%USERPROFILE%\.ssh\id_my_servers_sk.pub`".
 
-## Install the public key on a remote server
+## Install the public key on a remote host
+
+	type %USERPROFILE%\.ssh\id_my_servers_sk.pub | ssh user@remote-host "cat >> .ssh/authorized_keys"
+
+## Connect to the remote host
+
+	ssh -o StrictHostKeychecking=no -o IdentitiesOnly=yes -o IdentityFile="%USERPROFILE%\.ssh\id_my_servers_sk" user@remote-host
 
