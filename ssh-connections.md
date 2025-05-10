@@ -30,12 +30,7 @@ Generate a FIDO authenticator-backed SSH key:
 
 * `-t ed25519-sk`: type of key (type `ED25519` for security key - "sk" for "security key").
 * `-O`: set option for generating **FIDO**-backed keys (see [this link](https://man.openbsd.org/ssh-keygen#FIDO_AUTHENTICATOR)).
-  * `resident`: indicate that the key handle should be stored on the FIDO authenticator itself. 
-    This makes it easier to use the authenticator on multiple computers. Resident keys may be 
-    supported on FIDO2 authenticators and typically require that a PIN be set on the authenticator
-    prior to generation. Resident keys may be loaded off the authenticator using `ssh-add`. 
-    Storing both parts of a key on a FIDO authenticator increases the likelihood of an attacker 
-    being able to use a stolen authenticator device.
+  * `resident`: ensures that the private key is stored directly on the FIDO2 device as a resident key, making it persistently available for future authentication without reloading.
   * `application`: override the default FIDO application/origin string of "`ssh:`". This may be useful 
     when generating host or domain-specific resident keys. The specified application string must 
     begin with "`ssh:`".
